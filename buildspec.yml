@@ -5,7 +5,7 @@ env:
     TAGS: "bindata"
     IMAGE_REPO_NAME: "gitea"
     AWS_ACCOUNT_ID: "085054811666"  
-    IMAGE_TAG: v1.0
+    IMAGE_TAG: $(git describe --tags --abbrev=0)
 
 phases:
   install:
