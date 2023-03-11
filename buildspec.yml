@@ -5,7 +5,6 @@ env:
     TAGS: "bindata"
     IMAGE_REPO_NAME: "gitea"
     AWS_ACCOUNT_ID: "085054811666"  
-    IMAGE_TAG: $(git describe --tags --abbrev=0)
 
 phases:
   install:
@@ -17,7 +16,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
-      - IMAGE_TAG=$(git describe --tags --abbrev=0)
+      - export IMAGE_TAG=$(git describe --tags --abbrev=0)
   build:
     commands:
       - echo Build started on `date`
