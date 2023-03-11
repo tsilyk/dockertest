@@ -11,6 +11,7 @@ phases:
   install:
     commands:
       - echo Starting the Docker daemon...
+      - ls -la
       - /usr/local/bin/dockerd-entrypoint.sh
   pre_build:
     commands:
